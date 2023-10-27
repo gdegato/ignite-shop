@@ -1,11 +1,9 @@
-
 import { HomeContainer, Product } from "../styles/home"
-
 import Image from "next/image"
+import { GetServerSideProps, GetStaticProps } from "next"
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
 import { stripe } from "../lib/stripe"
-import { GetServerSideProps } from "next"
 import Stripe from "stripe"
 
 
@@ -25,7 +23,6 @@ export default function Home({ products }: HomeProps) {
       spacing: 48,
     }
   })
-
 
 
   return (
@@ -53,25 +50,36 @@ export default function Home({ products }: HomeProps) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await stripe.products.list({
-    expand: ['data.default_price']
+    expand: ['data.default_price'],
+    active: true,
   });
 
 
   const products = response.data.map(product => {
     const price = product.default_price as Stripe.Price;
+
+    const priceInCents = price.unit_amount !== null ? price.unit_amount / 100 : 0;
+
+    const formattedPrice = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(priceInCents);
+
     return {
       id: product.id,
       name: product.name,
       imageUrl: product.images[0],
-      price: price.unit_amount / 100,
-    }
-  })
+      price: formattedPrice,
+    };
+  });
+
 
   return {
     props: {
       products
-    }
+    },
+    revalidate: 60 * 60 * 2, //a cada duas horas
   }
 }
