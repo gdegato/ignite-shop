@@ -4,7 +4,7 @@ Esse projeto foi desenvolvido durante o Curso ReactJS do Ignite - Rocketseat
 
 ## ✔️ Confira a homepage do projeto na Vercel:
 
-<a href="">Ignite Shop</a>
+<a href="https://ignite-shop-gdegato.vercel.app/">Ignite Shop</a>
 
 ## 🔨 Funcionalidades do projeto
 
@@ -44,4 +44,4 @@ pnpm dev
 # or
 bun dev
 
-Para abrir projeto: [http://localhost:3000](http://localhost:3000) no seu navegador.
+Para abrir o projeto: <a href="http://localhost:3000/"> http://localhost:3000 </a> no seu navegador.
