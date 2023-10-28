@@ -1,4 +1,4 @@
-import { HomeContainer, Product } from "../styles/home"
+import { HomeContainer, Product } from "../styles/pages/home"
 import Image from "next/image"
 import Head from 'next/head'
 import { GetStaticProps } from "next"

@@ -1,4 +1,4 @@
-import { styled } from ".";
+import { styled } from "..";
 
 export const SuccessContainer = styled('main', {
   display: 'flex',
@@ -36,7 +36,7 @@ export const SuccessContainer = styled('main', {
   }
 });
 
-export const ImageContainer = styled('div', {
+export const CheckoutImageContainer = styled('div', {
   width: '100%',
   maxWidth: 130,
   height: 145,
@@ -44,7 +44,6 @@ export const ImageContainer = styled('div', {
   borderRadius: 8,
   padding: '0.25rem',
   marginTop: '4rem',
-
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

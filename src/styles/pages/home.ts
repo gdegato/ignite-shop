@@ -1,9 +1,8 @@
-import { styled } from "."
+import { styled } from ".."
 
 
 export const HomeContainer = styled('main', {
   display: 'flex',
- // gap: '3rem',
   width: '100%',
   maxWidth: 'calc(100vw - ((100vw - 1180px) / 2))',
   marginLeft: 'auto',
@@ -13,7 +12,6 @@ export const HomeContainer = styled('main', {
 export const Product = styled('div', {
   background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
   borderRadius: 8,
- // padding: '0.25rem',
   cursor: 'pointer',
   position: 'relative',
   overflow: 'hidden',
@@ -41,13 +39,13 @@ export const Product = styled('div', {
 
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
 
-    transform: 'translateY(70%)',
+    transform: 'translateY(110%)',
     opacity: 0,
-    transition: 'all 0.3s ease-in-out',
+    transition: 'all 0.2s ease-in-out',
 
     strong: {
       fontSize: '$lg',
-      color: '$gray100'
+      color: '$gray100',
     },
 
     span: {
